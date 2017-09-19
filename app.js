@@ -1,17 +1,20 @@
+
+// Init leancould
+const AV = require('./utils/av-weapp-min.js');
+AV.init({
+  appId: '7XYHK9Nfk9CGgU02BbGd7AEA-gzGzoHsz',
+  appKey: 'WvDzWc5GgmqqTWA3VpuvGmSv',
+});
+
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    AV.User.loginWithWeapp().then(user => {
+      this.globalData.user = user.toJSON();
+    }).catch(console.error);
+
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -34,6 +37,7 @@ App({
     })
   },
   globalData: {
+    user: null,
     userInfo: null
   }
 })

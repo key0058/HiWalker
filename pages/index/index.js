@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+const AV = require('../../utils/av-weapp-min.js');
 const app = getApp()
 
 Page({
@@ -44,11 +45,22 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log(e)
+    console.log("+++++" + e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  callLeanCouldFunction: function(e) {
+    AV.Cloud.run(
+      "showHistory", 
+      {key: "valuea"},
+      {remote: true}
+    ).then(function(data) {
+      console.log("Success call:" + data);
+    }, function(err) {
+      console.log("Fail call:" + err);
+    });
   }
 })

@@ -19,3 +19,8 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.my-btn {
+  margin-top:5px;
+  font-size: 12px;
+}
