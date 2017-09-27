@@ -45,17 +45,21 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    console.log("+++++" + e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
   },
-  callLeanCouldFunction: function(e) {
+  lcCreateWechatPayment: function(e) {
+    console.log(app.globalData.user.authData.lc_weapp.openid);
     AV.Cloud.run(
-      "showHistory", 
-      {key: "valuea"},
+      "createWechatPayment", 
+      { 
+        productName: "ChenTest",
+        userOpenId: app.globalData.user.authData.lc_weapp.openid,
+        totalFee: "1"
+      },
       {remote: true}
     ).then(function(data) {
       console.log("Success call:" + data);

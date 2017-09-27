@@ -6,6 +6,6 @@
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
-    <button class="my-btn" bindtap="callLeanCouldFunction">测试云函数</button>
+    <button class="my-btn" bindtap="lcCreateWechatPayment">测试云函数</button>
   </view>
 </view>
