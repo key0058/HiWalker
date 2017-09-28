@@ -5,7 +5,9 @@
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <text class="userinfo-nickname">LeanCloud Demo</text>
     </block>
-    <button class="my-btn" bindtap="lcCreateWechatPayment">测试云函数</button>
+    <button class="my-btn" bindtap="lcCreateWechatPayment">创建微信支付云函数</button>
+    <button class="my-btn" bindtap="showDataPage">云端数据操作</button>
   </view>
 </view>

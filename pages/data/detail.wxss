@@ -1,0 +1,9 @@
+/* pages/data/detail.wxss */
+.container {
+  padding: 5px;
+}
+
+.my-btn {
+  margin-top:5px;
+  font-size: 12px;
+}

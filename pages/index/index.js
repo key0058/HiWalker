@@ -66,5 +66,10 @@ Page({
     }, function(err) {
       console.log("Fail call:" + err);
     });
+  },
+  showDataPage: function(e) {
+    wx.navigateTo({
+      url: '../data/detail'
+    })
   }
 })

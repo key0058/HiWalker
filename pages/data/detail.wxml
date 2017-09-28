@@ -1,0 +1,7 @@
+<view class="container">
+  <button class="my-btn" bindtap="lcCreateOrder">Create Order</button>
+  <button class="my-btn" bindtap="lcQueryOrder">Query Order</button>
+  <view wx:for="{{orders}}" wx:key="unique">
+    {{item.openId}}
+  </view>
+</view>
