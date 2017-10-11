@@ -6,6 +6,12 @@ AV.init({
   appKey: 'WvDzWc5GgmqqTWA3VpuvGmSv',
 });
 
+const Bmob = require('utils/bmob.js');
+Bmob.initialize(
+  "e11e12d3cb1af1583765a66d652f2dc3", 
+  "14b035dad91519854f1c962def3e1950"
+  );
+
 //app.js
 App({
   onLaunch: function () {
