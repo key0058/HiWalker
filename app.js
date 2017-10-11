@@ -17,6 +17,7 @@ App({
   onLaunch: function () {
     // 登录
     AV.User.loginWithWeapp().then(user => {
+      console.log("User login");
       this.globalData.user = user.toJSON();
     }).catch(console.error);
 
