@@ -17,9 +17,9 @@ Page({
     })
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
+    if (app.globalData.lcUserInfo) {
       this.setData({
-        userInfo: app.globalData.userInfo,
+        userInfo: app.globalData.lcUserInfo,
         hasUserInfo: true
       })
     } else if (this.data.canIUse){
@@ -35,7 +35,7 @@ Page({
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
-          app.globalData.userInfo = res.userInfo
+          app.globalData.lcUserInfo = res.userInfo
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true
@@ -45,19 +45,19 @@ Page({
     }
   },
   getUserInfo: function(e) {
-    app.globalData.userInfo = e.detail.userInfo
+    app.globalData.lcUserInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
   },
   lcCreateWechatPayment: function(e) {
-    console.log(app.globalData.user.authData.lc_weapp.openid);
+    console.log(app.globalData.lcUser.authData.lc_weapp.openid);
     AV.Cloud.run(
       "createWechatPayment", 
       { 
         productName: "ChenTest",
-        userOpenId: app.globalData.user.authData.lc_weapp.openid,
+        userOpenId: app.globalData.lcUser.authData.lc_weapp.openid,
         totalFee: "1"
       },
       {remote: true}
